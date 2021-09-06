@@ -1,0 +1,43 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 560px;
+  padding: 2rem;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  font-weight: 300;
+}
+
+.alert-display-flex {
+  display: flex;
+  align-items: center;
+}
+
+.alert-display-none {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  align-items: center;
+}
+
+.fa-minus-circle {
+  cursor: pointer;
+}
