@@ -12,8 +12,13 @@ No need to install anything. Just download the project, double click on the inde
 
 Below you see three images.
 This first one is the empty list.
+
 ![](to-do-empty.PNG)
+
 This second is the list with some to dos.
+
 ![](to-do-filled.PNG)
+
 And the third is when a search is done.
+
 ![](to-do-search.PNG)
