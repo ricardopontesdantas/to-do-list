@@ -6,7 +6,7 @@ This project is a **to do list**, and is the second of the challenges proposed i
 
 ## Usage
 
-No need to install anything. Just download the project, double click on the index.html file, and make your list!
+No need to install anything. Just download the project, double click on the index.html file, and make your list! [Or you can access the production link here =)](https://focused-cori-cc9a51.netlify.app/).
 
 ## Preview
 
