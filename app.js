@@ -3,7 +3,7 @@ const formAddTodo = document.querySelector("#form-add-todo");
 const todosContainer = document.querySelector(".todos-container");
 const messageEmptyList = document.querySelector(".alert-warning");
 
-const showMessageIfHasItem = (show) => {
+const showMessageIfHasNoItem = (show) => {
   if (show) {
     messageEmptyList.classList.add("alert-display-flex");
     messageEmptyList.classList.remove("alert-display-none");
@@ -25,7 +25,7 @@ const addTodo = (event) => {
 
   if (isEmptyTodo) return;
 
-  showMessageIfHasItem(false);
+  showMessageIfHasNoItem(false);
 
   todosContainer.innerHTML += `<li class="list-group-item list-group-item-action mb-2" style="display: flex; justify-content: space-between;">${valueTodo} <i class="fas fa-minus-circle"></li>`;
 
@@ -45,7 +45,7 @@ const removeTodo = (event) => {
 
   const isEmptyList = document.querySelectorAll("li").length === 0;
 
-  if (isEmptyList) showMessageIfHasItem(true);
+  if (isEmptyList) showMessageIfHasNoItem(true);
 };
 
 const searchTodo = (event) => {
