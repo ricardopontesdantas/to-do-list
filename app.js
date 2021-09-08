@@ -3,31 +3,27 @@ const formAddTodo = document.querySelector("#form-add-todo");
 const todosContainer = document.querySelector(".todos-container");
 const messageEmptyList = document.querySelector(".alert-warning");
 
-const showMessageIfHasNoItem = (show) => {
-  if (show) {
-    messageEmptyList.classList.add("alert-display-flex");
-    messageEmptyList.classList.remove("alert-display-none");
-    return;
-  }
-
-  messageEmptyList.classList.add("alert-display-none");
-  messageEmptyList.classList.remove("alert-display-flex");
+const showEmptyListWarning = (mustShow) => {
+  messageEmptyList.classList.add(
+    mustShow ? "alert-display-flex" : "alert-display-none"
+  );
+  messageEmptyList.classList.remove(
+    mustShow ? "alert-display-none" : "alert-display-flex"
+  );
 };
 
 const addTodo = (event) => {
   event.preventDefault();
 
-  const inputTodo = event.target.todo;
+  const inputValue = event.target.todo.value;
 
-  const valueTodo = inputTodo.value;
-
-  const isEmptyTodo = valueTodo.trim().length === 0;
+  const isEmptyTodo = inputValue.trim().length === 0;
 
   if (isEmptyTodo) return;
 
-  showMessageIfHasNoItem(false);
+  showEmptyListWarning(false);
 
-  todosContainer.innerHTML += `<li class="list-group-item list-group-item-action mb-2" style="display: flex; justify-content: space-between;">${valueTodo} <i class="fas fa-minus-circle"></li>`;
+  todosContainer.innerHTML += `<li class="list-group-item list-group-item-action mb-2" style="display: flex; justify-content: space-between;">${inputValue} <i class="fas fa-minus-circle"></li>`;
 
   event.target.reset();
 };
@@ -45,25 +41,20 @@ const removeTodo = (event) => {
 
   const isEmptyList = document.querySelectorAll("li").length === 0;
 
-  if (isEmptyList) showMessageIfHasNoItem(true);
+  if (isEmptyList) showEmptyListWarning(true);
 };
 
 const searchTodo = (event) => {
   const searchTerm = event.target.value;
 
-  todosList = Array.from(todosContainer.querySelectorAll("li"));
+  const todosList = Array.from(todosContainer.querySelectorAll("li"));
 
   todosList.forEach((todo) => {
     const termMatch = todo.textContent
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
 
-    if (!termMatch) {
-      todo.style.display = "none";
-      return;
-    }
-
-    todo.style.display = "flex";
+    todo.style.display = termMatch ? "flex" : "none";
   });
 };
 
